@@ -35,11 +35,11 @@ csort(unsigned const k,
   
 # pragma omp parallel for num_threads(2)
   for (unsigned i = 0; i < n; i++) {
-# pragma omp critical
-  {
-    out[count[in[i]]] = in[i];
-    count[in[i]]++;
-  }      
+#   pragma omp critical
+    {
+      out[count[in[i]]] = in[i];
+      count[in[i]]++;
+    }      
   }
 
   free(count);
